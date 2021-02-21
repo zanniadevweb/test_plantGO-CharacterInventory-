@@ -7,14 +7,23 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     //creating object of ViewPager
-    ViewPager mViewPager;
+    ViewPager mViewPagerTorso;
+
+    //creating object of ViewPager
+    ViewPager mViewPagerHat;
 
     //images array
-    int[] images = {R.drawable.a1, R.drawable.a2, R.drawable.a3, R.drawable.a4,
-            R.drawable.a5, R.drawable.a6, R.drawable.a7, R.drawable.a8};
+    int[] imagesTorso = {R.drawable.torso1, R.drawable.torso2};
+
+
+    //images array
+    int[] imagesHat = {R.drawable.hat1, R.drawable.hat2};
 
     //Creating Object of ViewPagerAdapter
-    ViewPagerAdapter mViewPagerAdapter;
+    ViewPagerAdapter mViewPagerAdapterTorso;
+
+    //Creating Object of ViewPagerAdapter
+    ViewPagerAdapter mViewPagerAdapterHat;
 
 
     @Override
@@ -23,13 +32,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initializing the ViewPager Object
-        mViewPager = (ViewPager)findViewById(R.id.viewPagerMain);
+        mViewPagerTorso = (ViewPager)findViewById(R.id.viewPagerMain);
+
+        //Initializing the ViewPager Object
+        mViewPagerHat = (ViewPager)findViewById(R.id.viewPagerSecondary);
 
         //Initializing the ViewPagerAdapter
-        mViewPagerAdapter = new ViewPagerAdapter(MainActivity.this, images);
+        mViewPagerAdapterTorso = new ViewPagerAdapter(MainActivity.this, imagesTorso);
+
+        //Initializing the ViewPagerAdapter
+        mViewPagerAdapterHat = new ViewPagerAdapter(MainActivity.this, imagesHat);
 
         //Adding the Adapter to the ViewPager
-        mViewPager.setAdapter(mViewPagerAdapter);
+        mViewPagerTorso.setAdapter(mViewPagerAdapterTorso);
+
+        //Adding the Adapter to the ViewPager
+        mViewPagerHat.setAdapter(mViewPagerAdapterHat);
 
 
     }
