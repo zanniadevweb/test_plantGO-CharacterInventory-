@@ -39,9 +39,11 @@ public class Personnage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TorsoaddElement(R.drawable.torso1);
-
-        HataddElement(R.drawable.hat1);
+        if (Modele.firstInventoryLook == true) {
+            TorsoaddElement(R.drawable.torso1);
+            HataddElement(R.drawable.hat1);
+            Modele.firstInventoryLook = false;
+        }
 
         //Initializing the ViewPager Object
         mViewPagerTorso = (ViewPager)findViewById(R.id.viewPagerMain);
