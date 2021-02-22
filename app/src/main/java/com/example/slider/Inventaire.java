@@ -41,10 +41,10 @@ public class Inventaire extends AppCompatActivity {
             if (Modele.canAddHat2On == true) {
                 Modele.canAddHat2On = false;
                 Switch sw2Hat = findViewById(R.id.switchHat2);
+                sw2Hat.setClickable(false);
                 ImageView imgv2Hat = findViewById(R.id.imageViewHat2);
                 imgv2Hat.setImageResource(R.drawable.hat2);
                 sw2Hat.setText("Disponible");
-                sw2Hat.setClickable(false);
                 Personnage.HataddElement(R.drawable.hat2);
             }
     }
@@ -53,10 +53,10 @@ public class Inventaire extends AppCompatActivity {
             if (Modele.canAddTorso2On == true) {
                 Modele.canAddTorso2On = false;
                 Switch sw2Torso = findViewById(R.id.switchTorso2);
+                sw2Torso.setClickable(false);
                 ImageView imgv2Torso = findViewById(R.id.imageViewTorso2);
                 imgv2Torso.setImageResource(R.drawable.torso2);
                 sw2Torso.setText("Disponible");
-                sw2Torso.setClickable(false);
                 Personnage.TorsoaddElement(R.drawable.torso2);
             }
     }
