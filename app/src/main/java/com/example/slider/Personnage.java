@@ -2,9 +2,14 @@ package com.example.slider;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+import java.util.ArrayList;
+
+public class Personnage extends AppCompatActivity {
 
     //creating object of ViewPager
     ViewPager mViewPagerTorso;
@@ -12,24 +17,33 @@ public class MainActivity extends AppCompatActivity {
     //creating object of ViewPager
     ViewPager mViewPagerHat;
 
-    //images array
-    int[] imagesTorso = {R.drawable.torso1, R.drawable.torso2};
+    //objets array
+    int[] imagesAllObjects = {};
 
+    //images array list
+    public static ArrayList<Integer> imagesTorso = new ArrayList<Integer>(); // {R.drawable.torso1, R.drawable.torso2};
 
-    //images array
-    int[] imagesHat = {R.drawable.hat1, R.drawable.hat2};
+    //images array list
+    public static ArrayList<Integer> imagesHat = new ArrayList<Integer>(); //{R.drawable.hat1, R.drawable.hat2};
 
     //Creating Object of ViewPagerAdapter
     ViewPagerAdapter mViewPagerAdapterTorso;
 
     //Creating Object of ViewPagerAdapter
     ViewPagerAdapter mViewPagerAdapterHat;
+    public static int count;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TorsoaddElement(R.drawable.torso1);
+        TorsoaddElement(R.drawable.torso2);
+
+        HataddElement(R.drawable.hat1);
+        HataddElement(R.drawable.hat2);
 
         //Initializing the ViewPager Object
         mViewPagerTorso = (ViewPager)findViewById(R.id.viewPagerMain);
@@ -38,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
         mViewPagerHat = (ViewPager)findViewById(R.id.viewPagerSecondary);
 
         //Initializing the ViewPagerAdapter
-        mViewPagerAdapterTorso = new ViewPagerAdapter(MainActivity.this, imagesTorso);
+        mViewPagerAdapterTorso = new ViewPagerAdapter(Personnage.this, imagesTorso);
 
         //Initializing the ViewPagerAdapter
-        mViewPagerAdapterHat = new ViewPagerAdapter(MainActivity.this, imagesHat);
+        mViewPagerAdapterHat = new ViewPagerAdapter(Personnage.this, imagesHat);
 
         //Adding the Adapter to the ViewPager
         mViewPagerTorso.setAdapter(mViewPagerAdapterTorso);
@@ -49,11 +63,18 @@ public class MainActivity extends AppCompatActivity {
         //Adding the Adapter to the ViewPager
         mViewPagerHat.setAdapter(mViewPagerAdapterHat);
 
-
     }
 
+    void TorsoaddElement(int element) {
+        imagesTorso.add(element);
+    }
 
+    void HataddElement(int element) {
+        imagesHat.add(element);
+    }
 
-
-
+    public void versInventaire(View view) {
+        Intent intent = new Intent(Personnage.this, Inventaire.class);
+        Personnage.this.startActivity(intent);
+    }
 }

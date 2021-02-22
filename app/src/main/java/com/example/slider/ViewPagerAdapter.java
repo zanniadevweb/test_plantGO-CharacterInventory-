@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 class ViewPagerAdapter extends PagerAdapter {
@@ -16,14 +18,14 @@ class ViewPagerAdapter extends PagerAdapter {
     Context context;
 
     //Array of images
-    int[] images;
+    ArrayList<Integer> images;
 
     //Layout Inflater
     LayoutInflater mLayoutInflater;
 
 
     //Viewpager Constructor
-    public ViewPagerAdapter(Context context, int[] images) {
+    public ViewPagerAdapter(Context context, ArrayList<Integer> images) {
         this.context = context;
         this.images = images;
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -32,7 +34,7 @@ class ViewPagerAdapter extends PagerAdapter {
     @Override
     public int getCount() {
         //return the number of images
-        return images.length;
+        return images.size();
     }
 
     @Override
@@ -53,10 +55,10 @@ class ViewPagerAdapter extends PagerAdapter {
         ImageView imageViewHat = (ImageView) itemView.findViewById(R.id.imageViewSecondary);
 
         //setting the image in the imageView
-        imageViewTorso.setImageResource(images[position]);
+        imageViewTorso.setImageResource(images.get(position));
 
         //setting the image in the imageView
-        imageViewHat.setImageResource(images[position]);
+        imageViewHat.setImageResource(images.get(position));
 
         //Adding the View
         Objects.requireNonNull(container).addView(itemView);
