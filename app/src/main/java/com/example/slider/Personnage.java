@@ -40,10 +40,8 @@ public class Personnage extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TorsoaddElement(R.drawable.torso1);
-        TorsoaddElement(R.drawable.torso2);
 
         HataddElement(R.drawable.hat1);
-        HataddElement(R.drawable.hat2);
 
         //Initializing the ViewPager Object
         mViewPagerTorso = (ViewPager)findViewById(R.id.viewPagerMain);
@@ -65,11 +63,11 @@ public class Personnage extends AppCompatActivity {
 
     }
 
-    void TorsoaddElement(int element) {
+    static void TorsoaddElement(int element) {
         imagesTorso.add(element);
     }
 
-    void HataddElement(int element) {
+    static void HataddElement(int element) {
         imagesHat.add(element);
     }
 

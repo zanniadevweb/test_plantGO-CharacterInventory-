@@ -3,10 +3,8 @@ package com.example.slider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +26,7 @@ public class Inventaire extends AppCompatActivity {
             imgv2.setImageResource(R.drawable.hat2);
             sw2.setText("Disponible");
             sw2.setClickable(false);
+            Personnage.HataddElement(R.drawable.hat2);
     }
 
     public void onTorso2 (View view) {
@@ -36,6 +35,7 @@ public class Inventaire extends AppCompatActivity {
             imgv2.setImageResource(R.drawable.torso2);
             sw2.setText("Disponible");
             sw2.setClickable(false);
+            Personnage.TorsoaddElement(R.drawable.torso2);
     }
 
 }
